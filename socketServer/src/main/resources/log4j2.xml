@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" packages="jarek">
+ <Properties>
+   <Property name="filename">target/rolling1/rollingtest-$${sd:type}.log</Property>
+ </Properties>
+ <ThresholdFilter level="debug"/>
+
+ <Appenders>
+     <Console name="STDOUT">
+         <PatternLayout pattern="%d:%m%n"/>
+         <ThresholdFilter level="debug"/>
+     </Console>
+     <Socket name="socket" port="12000">
+         <PatternLayout pattern="%d:%m%n"/>
+     </Socket>
+  </Appenders>
+
+<Loggers>
+
+<Root level="debug">
+      <AppenderRef ref="STDOUT"/>
+      <AppenderRef ref="socket"/>
+</Root>
+</Loggers>
+</Configuration>
